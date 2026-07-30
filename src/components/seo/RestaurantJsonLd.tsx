@@ -16,7 +16,7 @@ export function RestaurantJsonLd() {
     name: business.brandName,
     legalName: business.legalName,
     url: business.siteUrl,
-    image: `${business.siteUrl}/opengraph-image`,
+    image: `${business.siteUrl}/images/hero/opengraph-lauthentique.webp`,
     telephone: business.phone,
     email: business.email,
     address: {

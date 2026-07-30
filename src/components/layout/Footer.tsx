@@ -10,7 +10,7 @@ export function Footer() {
     <footer className="site-footer">
       <div className="container footer-grid">
         <div className="footer-brand-block">
-          <Image src="/images/brand/logo-authentique.webp" alt="L’Authentique" width={360} height={90} />
+          <Image src="/images/brand/logo-lauthentique-horizontal.webp" alt="Logo de L’Authentique" width={755} height={206} />
           <p>Une adresse conviviale au Village Artisanal de Sainte-Anne, pour manger, boire un verre et profiter du moment.</p>
         </div>
         <div>
@@ -36,7 +36,7 @@ export function Footer() {
       </div>
       <div className="container footer-bottom">
         <p>© {new Date().getFullYear()} L’Authentique · Sainte-Anne, Guadeloupe</p>
-        <p>Photos et informations à valider avant publication définitive.</p>
+        <p>Restaurant · Snack · Bar · Glacier au Village Artisanal.</p>
       </div>
     </footer>
   );

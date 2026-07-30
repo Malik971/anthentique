@@ -31,7 +31,7 @@ export function Header() {
       <div className="site-header__main">
         <div className="container site-header__inner">
           <Link className="brand" href="/" aria-label="L’Authentique, accueil" onClick={() => setOpen(false)}>
-            <Image src="/images/brand/logo-authentique.webp" alt="L’Authentique" width={360} height={90} priority />
+            <Image src="/images/brand/logo-lauthentique-horizontal.webp" alt="Logo de L’Authentique" width={755} height={206} priority />
           </Link>
 
           <nav className="desktop-nav" aria-label="Navigation principale">

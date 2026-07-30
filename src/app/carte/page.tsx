@@ -42,7 +42,7 @@ export default function MenuPage() {
               <Link className="menu-hero__back" href="/"><ArrowLeft aria-hidden="true" />Retour à l’accueil</Link>
               <p className="eyebrow">La carte de L’Authentique</p>
               <h1>Tout voir, directement sur votre téléphone.</h1>
-              <p>Snacking, salades, desserts, glaces, cocktails et boissons. Les visuels de carte ci-dessous proviennent de la carte publique 2024 et doivent être validés par le propriétaire avant publication définitive.</p>
+              <p>Snacking, salades, desserts, glaces, cocktails et boissons. Les visuels ci-dessous correspondent à la carte transmise par L’Authentique.</p>
               <div className="menu-hero__actions">
                 <a href={phoneHref(business.phone)}><Phone aria-hidden="true" />Appeler</a>
                 <a href={whatsappHref(business.whatsapp)} target="_blank" rel="noopener noreferrer"><BrandIcon platform="whatsapp" aria-hidden="true" />WhatsApp</a>
@@ -73,15 +73,15 @@ export default function MenuPage() {
 
             <div className="menu-documents__grid">
               <figure className="menu-sheet-card" id="salades">
-                <a className="menu-sheet-card__image" href="/images/real/menu-recto.webp" target="_blank" rel="noopener noreferrer" aria-label="Agrandir la carte recto">
-                  <Image src="/images/real/menu-recto.webp" alt="Carte recto de L’Authentique avec petit-déjeuner, snacking, sandwichs, omelettes, paninis, salades, desserts et glaces" fill sizes="(max-width: 900px) 100vw, 48vw" />
+                <a className="menu-sheet-card__image" href="/images/menu/menu-recto.webp" target="_blank" rel="noopener noreferrer" aria-label="Agrandir la carte recto">
+                  <Image src="/images/menu/menu-recto.webp" alt="Carte recto de L’Authentique avec petit-déjeuner, snacking, sandwichs, omelettes, paninis, salades, desserts, crêpes et glaces" fill sizes="(max-width: 900px) 100vw, 48vw" />
                 </a>
                 <figcaption><span>Carte · Recto</span><span><ZoomIn aria-hidden="true" />Zoomez pour lire</span></figcaption>
               </figure>
 
               <figure className="menu-sheet-card" id="boissons">
-                <a className="menu-sheet-card__image" href="/images/real/menu-verso.webp" target="_blank" rel="noopener noreferrer" aria-label="Agrandir la carte des boissons et cocktails">
-                  <Image src="/images/real/menu-verso.webp" alt="Carte verso de L’Authentique avec boissons sans alcool, boissons chaudes, vins, cocktails, bières et bières pression" fill sizes="(max-width: 900px) 100vw, 48vw" />
+                <a className="menu-sheet-card__image" href="/images/menu/menu-verso.webp" target="_blank" rel="noopener noreferrer" aria-label="Agrandir la carte des boissons et cocktails">
+                  <Image src="/images/menu/menu-verso.webp" alt="Carte verso de L’Authentique avec boissons sans alcool, boissons chaudes, vins, cocktails, bières et bières pression" fill sizes="(max-width: 900px) 100vw, 48vw" />
                 </a>
                 <figcaption><span>Carte · Boissons</span><span><ZoomIn aria-hidden="true" />Zoomez pour lire</span></figcaption>
               </figure>
@@ -89,8 +89,8 @@ export default function MenuPage() {
 
             <div className="menu-documents__notice">
               <div>
-                <strong>Une carte plus récente existe ?</strong>
-                <p>Remplacez simplement les deux fichiers dans <code>public/images/real</code> sans modifier la mise en page.</p>
+                <strong>Besoin d’un renseignement ?</strong>
+                <p>Les disponibilités peuvent varier : contactez directement L’Authentique pour connaître les propositions du moment.</p>
               </div>
               <Link href="/qr-menu"><Download aria-hidden="true" />Support QR imprimable</Link>
             </div>

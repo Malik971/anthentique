@@ -8,7 +8,7 @@ export function SocialSection() {
     <section className="social-section">
       <div className="container social-section__card">
         <div className="social-section__image">
-          <Image src="/images/real/bar-night.webp" alt="L’Authentique illuminé en soirée" fill sizes="(max-width: 900px) 100vw, 44vw" />
+          <Image src="/images/drinks/cocktail-aperol-terrasse.webp" alt="Cocktail servi sur la terrasse de L’Authentique" fill sizes="(max-width: 900px) 100vw, 44vw" />
         </div>
         <div className="social-section__copy">
           <p className="eyebrow">En direct du bar</p>

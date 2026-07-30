@@ -12,7 +12,7 @@ export function OpeningHoursSection() {
     <section className="practical section-pad" id="infos-pratiques" aria-labelledby="practical-title">
       <div className="container practical__shell">
         <div className="practical__visual">
-          <Image src="/images/real/facade-close.webp" alt="Entrée du Village Artisanal des Galbas à Sainte-Anne, où se trouve L’Authentique." fill sizes="(max-width: 900px) 100vw, 52vw" />
+          <Image src="/images/location/facade-lauthentique.webp" alt="Façade de L’Authentique au Village Artisanal de Sainte-Anne" fill sizes="(max-width: 900px) 100vw, 52vw" />
           <div className="practical__visual-copy">
             <p>Village Artisanal</p>
             <strong>Local 16</strong>

@@ -8,10 +8,10 @@ export function ExperienceSection() {
       <div className="container experience__grid">
         <div className="experience__photos">
           <figure className="experience__photo experience__photo--large">
-            <Image src="/images/real/terrasse.webp" alt="Terrasse de L’Authentique au Village Artisanal" fill sizes="(max-width: 900px) 100vw, 52vw" />
+            <Image src="/images/location/terrasse-lauthentique.webp" alt="Terrasse colorée de L’Authentique au Village Artisanal" fill sizes="(max-width: 900px) 100vw, 52vw" />
           </figure>
           <figure className="experience__photo experience__photo--small">
-            <Image src="/images/real/equipe.webp" alt="Équipe de L’Authentique derrière le bar" fill sizes="(max-width: 900px) 55vw, 22vw" />
+            <Image src="/images/location/accueil-lauthentique.webp" alt="Accueil souriant derrière le bar de L’Authentique" fill sizes="(max-width: 900px) 55vw, 22vw" />
           </figure>
           <span className="experience__stamp">Sainte-Anne<br />Guadeloupe</span>
         </div>

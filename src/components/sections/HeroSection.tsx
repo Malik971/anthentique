@@ -7,20 +7,20 @@ import { BrandedSocialButton } from "@/components/ui/BrandedSocialButton";
 import { LiveOpeningPanel } from "@/components/ui/LiveOpeningPanel";
 
 export function HeroSection() {
-  const alt = "Entrée du Village Artisanal des Galbas à Sainte-Anne, où se trouve L’Authentique.";
+  const alt = "Façade de L’Authentique au Village Artisanal de Sainte-Anne";
   const desktop = getImageProps({
-    src: "/images/real/facade-wide.webp",
+    src: "/images/hero/hero-lauthentique-village-arc-en-ciel.webp",
     alt,
-    width: 900,
-    height: 600,
+    width: 1600,
+    height: 900,
     sizes: "100vw",
     priority: true,
   });
   const mobile = getImageProps({
-    src: "/images/real/facade-close.webp",
+    src: "/images/hero/hero-lauthentique-mobile.webp",
     alt,
-    width: 900,
-    height: 600,
+    width: 1350,
+    height: 1800,
     sizes: "100vw",
     priority: true,
   });
@@ -37,10 +37,10 @@ export function HeroSection() {
           <p className="hero__eyebrow">Village Artisanal · Galbas · Sainte-Anne</p>
           <Image
             className="hero__logo"
-            src="/images/brand/logo-authentique.webp"
-            alt="L’Authentique"
-            width={360}
-            height={90}
+            src="/images/brand/logo-lauthentique-horizontal.webp"
+            alt="Logo de L’Authentique"
+            width={755}
+            height={206}
             priority
           />
           <h1 className="sr-only" id="hero-title">L’Authentique</h1>

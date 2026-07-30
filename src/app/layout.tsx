@@ -18,9 +18,9 @@ export const metadata: Metadata = {
     siteName: business.brandName,
     locale: "fr_GP",
     type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "L’Authentique à Sainte-Anne" }],
+    images: [{ url: "/images/hero/opengraph-lauthentique.webp", width: 1200, height: 630, alt: "L’Authentique au Village Artisanal de Sainte-Anne" }],
   },
-  twitter: { card: "summary_large_image", title: business.brandName, description: business.shortDescription, images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: business.brandName, description: business.shortDescription, images: ["/images/hero/opengraph-lauthentique.webp"] },
   icons: { icon: "/icon.svg" },
   other: { "msapplication-TileColor": brandPalette.sky300 },
 };

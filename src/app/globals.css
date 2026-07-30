@@ -304,7 +304,7 @@ h3 { font-size: 1.45rem; line-height: 1.15; }
 .menu-documents__heading > p { margin: 0; color: var(--ink-soft); }
 .menu-documents__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; align-items: start; }
 .menu-sheet-card { margin: 0; background: #eaf5f8; border: 1px solid var(--line); box-shadow: var(--shadow-soft); }
-.menu-sheet-card__image { position: relative; min-height: min(1120px, 132vw); aspect-ratio: 595 / 841; background: white; overflow: hidden; }
+.menu-sheet-card__image { position: relative; min-height: min(1120px, 132vw); aspect-ratio: 1010 / 2200; background: white; overflow: hidden; }
 .menu-sheet-card__image img { object-fit: contain; }
 .menu-sheet-card figcaption { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: .9rem 1rem; font-size: .7rem; font-weight: 820; }
 .menu-sheet-card figcaption span:last-child { display: inline-flex; align-items: center; gap: .45rem; color: var(--ink-soft); }

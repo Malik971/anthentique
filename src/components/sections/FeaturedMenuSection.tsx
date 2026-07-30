@@ -7,19 +7,19 @@ const highlights = [
   {
     title: "À manger",
     subtitle: "Plats du jour, snacking, salades et petites faims",
-    image: "/images/real/croque-salade.webp",
+    image: "/images/food/croque-monsieur.webp",
     href: "/carte#salades",
   },
   {
     title: "À partager",
     subtitle: "Des assiettes généreuses pour les journées qui s’étirent",
-    image: "/images/real/paella.webp",
+    image: "/images/food/assiette-a-partager.webp",
     href: "/carte",
   },
   {
     title: "À boire",
     subtitle: "Cocktails, jus frais, boissons chaudes et fraîches",
-    image: "/images/real/bar-night.webp",
+    image: "/images/drinks/cocktail-aperol-terrasse.webp",
     href: "/carte#boissons",
   },
 ];
@@ -52,8 +52,8 @@ export function FeaturedMenuSection() {
 
         <div className="menu-showcase__qr">
           <div className="menu-showcase__qr-preview" aria-hidden="true">
-            <Image src="/images/real/menu-recto.webp" alt="" fill sizes="180px" />
-            <Image src="/images/real/menu-verso.webp" alt="" fill sizes="180px" />
+            <Image src="/images/menu/menu-recto.webp" alt="" fill sizes="180px" />
+            <Image src="/images/menu/menu-verso.webp" alt="" fill sizes="180px" />
           </div>
           <div className="menu-showcase__qr-copy">
             <p className="eyebrow">Menu mobile</p>

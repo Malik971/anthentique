@@ -19,7 +19,7 @@ export default function QrMenuPage() {
       <div className="qr-page__toolbar container"><Link href="/carte">Voir la carte en ligne</Link><PrintButton /></div>
       <article className="qr-sheet">
         <div className="qr-sheet__brand">
-          <Image src="/images/brand/logo-authentique.webp" alt="L’Authentique" width={360} height={90} />
+          <Image src="/images/brand/logo-lauthentique-horizontal.webp" alt="Logo de L’Authentique" width={755} height={206} />
         </div>
         <p className="qr-sheet__eyebrow">La carte, simplement</p>
         <h1>Scannez pour découvrir notre carte</h1>
