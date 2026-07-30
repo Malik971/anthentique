@@ -1,0 +1,63 @@
+import Image, { getImageProps } from "next/image";
+import { MapPin, UtensilsCrossed } from "lucide-react";
+import { business } from "@/content/business";
+import { whatsappHref } from "@/lib/links";
+import { ActionLink } from "@/components/ui/ActionLink";
+import { BrandedSocialButton } from "@/components/ui/BrandedSocialButton";
+import { LiveOpeningPanel } from "@/components/ui/LiveOpeningPanel";
+
+export function HeroSection() {
+  const alt = "Entrée du Village Artisanal des Galbas à Sainte-Anne, où se trouve L’Authentique.";
+  const desktop = getImageProps({
+    src: "/images/real/facade-wide.webp",
+    alt,
+    width: 900,
+    height: 600,
+    sizes: "100vw",
+    priority: true,
+  });
+  const mobile = getImageProps({
+    src: "/images/real/facade-close.webp",
+    alt,
+    width: 900,
+    height: 600,
+    sizes: "100vw",
+    priority: true,
+  });
+
+  return (
+    <section className="hero" aria-labelledby="hero-title">
+      <picture className="hero__media">
+        <source media="(max-width: 700px)" srcSet={mobile.props.srcSet} />
+        <img {...desktop.props} alt={alt} />
+      </picture>
+      <div className="hero__veil" aria-hidden="true" />
+      <div className="container hero__content">
+        <div className="hero__copy">
+          <p className="hero__eyebrow">Village Artisanal · Galbas · Sainte-Anne</p>
+          <Image
+            className="hero__logo"
+            src="/images/brand/logo-authentique.webp"
+            alt="L’Authentique"
+            width={360}
+            height={90}
+            priority
+          />
+          <h1 className="sr-only" id="hero-title">L’Authentique</h1>
+          <p className="hero__lead">{business.tagline}</p>
+          <LiveOpeningPanel />
+          <div className="hero__actions">
+            <ActionLink href="/carte" icon={UtensilsCrossed}>Voir la carte</ActionLink>
+            <ActionLink href={business.mapsUrl} icon={MapPin} variant="light" external>Nous trouver</ActionLink>
+            <BrandedSocialButton
+              platform="whatsapp"
+              href={whatsappHref(business.whatsapp)}
+              label="WhatsApp"
+              variant="compact"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

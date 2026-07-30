@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Illustration temporaire de L’Authentique</title>
+  <desc id="desc">Une devanture stylisée au Village Artisanal, à remplacer par une photographie originale.</desc>
+  <rect width="1920" height="1080" fill="#24483e"/>
+  <rect x="970" y="0" width="950" height="1080" fill="#f4e9d8"/>
+  <circle cx="1630" cy="195" r="92" fill="#e2ac3c"/>
+  <path d="M1110 780h650v180h-650z" fill="#fffdf8" stroke="#17352e" stroke-width="12"/>
+  <path d="M1070 780h730l-90-230h-550z" fill="#c86542" stroke="#17352e" stroke-width="12"/>
+  <path d="M1195 550l-36 230m143-230l-14 230m122-230v230m108-230l13 230m100-230l34 230" stroke="#fffdf8" stroke-width="34"/>
+  <rect x="1190" y="815" width="200" height="145" fill="#2d7774"/>
+  <rect x="1465" y="815" width="200" height="145" fill="#e2ac3c"/>
+  <path d="M1748 595c-34-151-91-232-171-289m142 346c-90-81-172-112-247-93m245 93c-22 88-18 168 14 240" fill="none" stroke="#24483e" stroke-width="22" stroke-linecap="round"/>
+  <text x="1418" y="720" text-anchor="middle" fill="#17352e" font-family="Georgia,serif" font-size="55">L’Authentique</text>
+  <text x="1418" y="1015" text-anchor="middle" fill="#17352e" font-family="Arial,sans-serif" font-size="24" font-weight="700" letter-spacing="5">VISUEL À REMPLACER</text>
+</svg>
