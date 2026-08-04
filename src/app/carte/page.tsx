@@ -52,7 +52,7 @@ export default function MenuPage() {
             <div className="menu-hero__status">
               <StatusBadge />
               <span>Lundi–samedi · {compactTime(weekdayHours.open)}–{compactTime(weekdayHours.close)}</span>
-              <span>Dimanche · {compactTime(sundayHours.open)}–{compactTime(sundayHours.close)} · à confirmer</span>
+              <span>Dimanche · {compactTime(sundayHours.open)}–{compactTime(sundayHours.close)}</span>
               <span>Village Artisanal · Sainte-Anne</span>
             </div>
           </div>
@@ -68,7 +68,7 @@ export default function MenuPage() {
           <div className="container">
             <div className="menu-documents__heading">
               <div><p className="eyebrow">Carte complète</p><h2>Deux pages, rien de caché.</h2></div>
-              <p>Sur mobile, touchez ou zoomez directement sur les images. Une version structurée pourra remplacer ces supports dès réception du menu final.</p>
+              <p>Sur mobile, touchez ou zoomez directement sur les images pour lire la carte en grand.</p>
             </div>
 
             <div className="menu-documents__grid">

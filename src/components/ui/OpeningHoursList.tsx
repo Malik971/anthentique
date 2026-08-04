@@ -20,7 +20,6 @@ export function OpeningHoursList() {
             </dt>
             <dd>
               <span>{slot.closed ? "Fermé" : `${compactTime(slot.open)} – ${compactTime(slot.close)}`}</span>
-              {slot.needsClientConfirmation ? <small className="hours-confirmation">À confirmer</small> : null}
             </dd>
           </div>
         );

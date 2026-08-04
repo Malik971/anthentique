@@ -339,7 +339,11 @@ h3 { font-size: 1.45rem; line-height: 1.15; }
 .legal-list dt { color: var(--ink-soft); font-size: .75rem; font-weight: 800; }
 .legal-list dd { margin: 0; font-size: .85rem; overflow-wrap: anywhere; }
 .legal-list small { color: var(--ink-soft); }
-.legal-todo { display: inline-block; background: #fff0c2; color: #6f4812; padding: .2rem .4rem; font-size: .75rem; font-weight: 800; }
+.legal-address { display: flex; flex-direction: column; gap: .15rem; margin-top: .9rem; font-size: .88rem; font-weight: 700; color: var(--ink) !important; overflow-wrap: anywhere; }
+.legal-address span { font-weight: 500; color: var(--ink-soft); }
+.legal-bullets { margin: .9rem 0 0; padding-left: 1.15rem; display: flex; flex-direction: column; gap: .35rem; color: var(--ink-soft); font-size: .9rem; }
+.legal-bullets li { list-style: disc; }
+.legal-page section p + p { margin-top: .9rem; }
 
 /* QR page */
 .qr-page { min-height: 100vh; background: #e9e2d9; padding-block: 2rem 4rem; }
@@ -857,7 +861,6 @@ h1, h2, h3 {
 .practical__hours dl > div.is-today { background: var(--brand-sky-100); border-bottom-color: var(--brand-sky-500); }
 .practical__hours dt span { background: var(--brand-yellow); }
 .practical__hours dd { display: flex; flex-direction: column; align-items: flex-end; }
-.hours-confirmation { color: var(--status-closed); font-size: .53rem; font-weight: 850; text-transform: uppercase; }
 .practical__contact a[href*="wa.me"] svg { color: var(--brand-whatsapp); }
 
 .social-section { background: var(--brand-soft-white); }
@@ -882,10 +885,11 @@ h1, h2, h3 {
   color: rgba(255,255,255,.74);
 }
 .footer-grid a.branded-social--footer:hover { transform: none; color: var(--brand-white); }
-.footer-grid .branded-social--footer .branded-social__icon { width: 24px; height: 24px; background: transparent; color: var(--brand-sky-300); }
-.footer-grid .branded-social--whatsapp.branded-social--footer .branded-social__icon { color: var(--brand-whatsapp); }
-.footer-grid .branded-social--facebook.branded-social--footer .branded-social__icon { color: var(--brand-facebook); }
-.footer-grid .branded-social--instagram.branded-social--footer .branded-social__icon { color: var(--brand-coral); }
+.footer-grid .branded-social--footer .branded-social__icon { width: 24px; height: 24px; background: var(--brand-sky-700); color: var(--brand-white); border-radius: 6px; }
+.footer-grid .branded-social--footer .branded-social__icon svg { width: 15px; height: 15px; }
+.footer-grid .branded-social--whatsapp.branded-social--footer .branded-social__icon { background: var(--brand-whatsapp); color: var(--brand-white); border-radius: 50%; }
+.footer-grid .branded-social--facebook.branded-social--footer .branded-social__icon { background: var(--brand-facebook); color: var(--brand-white); border-radius: 50%; }
+.footer-grid .branded-social--instagram.branded-social--footer .branded-social__icon { background: linear-gradient(135deg, var(--brand-instagram-a), var(--brand-instagram-b) 58%, var(--brand-instagram-c)); color: var(--brand-white); border-radius: 6px; }
 
 .menu-page { background: var(--brand-soft-white); }
 .menu-hero { background: var(--brand-sky-200); color: var(--brand-ink); }
@@ -914,7 +918,6 @@ h1, h2, h3 {
 
 .legal-page { background: var(--brand-sky-50); }
 .legal-intro { border-left-color: var(--brand-coral-deep); }
-.legal-todo { background: #fff2b8; color: #5e4300; }
 
 .qr-page { background: var(--brand-sky-100); }
 .qr-sheet__brand img { width: min(290px, 70vw); height: auto; display: block; }
@@ -967,4 +970,22 @@ h1, h2, h3 {
   .mobile-action-bar a:last-child,
   .mobile-action-bar__whatsapp { background: var(--brand-whatsapp); color: var(--brand-ink); }
   .mobile-action-bar__whatsapp svg { color: var(--brand-white); }
+}
+
+/* Finalisation responsive — confort et zones tactiles sur les petits écrans */
+@media (max-width: 680px) {
+  .footer-grid a.branded-social--footer { min-height: 44px; }
+  .menu-hero__status { width: auto; max-width: 100%; align-self: stretch; }
+  .legal-page__inner { overflow-wrap: anywhere; }
+  .legal-list dd { font-size: .88rem; }
+}
+
+@media (max-width: 380px) {
+  .container { width: calc(100% - 1.25rem); }
+  .hero__actions { grid-template-columns: 1fr; }
+  .menu-hero__actions { grid-template-columns: 1fr; }
+  .menu-hero__actions a:last-child { grid-column: auto; }
+  .quick-info__links { grid-template-columns: 1fr; }
+  .mobile-action-bar a { font-size: .55rem; }
+  .branded-social { padding-inline: .8rem; font-size: .74rem; }
 }

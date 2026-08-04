@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import QRCode from "qrcode";
 import { brandPalette } from "@/content/brand";
+import { business } from "@/content/business";
 
 interface DynamicQrCodeProps {
   path?: string;
@@ -11,7 +12,7 @@ interface DynamicQrCodeProps {
   className?: string;
 }
 
-const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, "");
+const configuredSiteUrl = business.siteUrl.trim().replace(/\/$/, "");
 
 function getPublicTarget(path: string) {
   if (!configuredSiteUrl) return null;
@@ -27,7 +28,7 @@ function getPublicTarget(path: string) {
   }
 }
 
-export function DynamicQrCode({ path = "/carte", size = 320, className }: DynamicQrCodeProps) {
+export function DynamicQrCode({ path = "/carte/", size = 320, className }: DynamicQrCodeProps) {
   const target = getPublicTarget(path);
   const [src, setSrc] = useState<string | null>(null);
 
@@ -48,7 +49,7 @@ export function DynamicQrCode({ path = "/carte", size = 320, className }: Dynami
     return (
       <span className="qr-code-pending" role="status">
         <span aria-hidden="true">QR</span>
-        <small>{target ? "Génération du QR…" : "Domaine public à configurer"}</small>
+        <small>Génération du QR…</small>
       </span>
     );
   }

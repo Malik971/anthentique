@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { business } from "@/content/business";
 import { pageMetadata } from "@/lib/seo";
+import { phoneHref } from "@/lib/links";
 
 export const metadata: Metadata = pageMetadata(
   "Politique de confidentialité",
@@ -7,19 +9,100 @@ export const metadata: Metadata = pageMetadata(
   "/confidentialite",
 );
 
+const { legal } = business;
+
 export default function PrivacyPage() {
   return (
     <main className="legal-page" id="contenu">
       <div className="container legal-page__inner">
         <p className="eyebrow">Vie privée</p>
         <h1>Politique de confidentialité</h1>
-        <p className="legal-intro">Dans sa configuration actuelle, ce site ne collecte pas de données personnelles et n’utilise aucun outil de mesure d’audience ou traceur publicitaire.</p>
-        <section><h2>Données collectées</h2><p>Aucun compte, formulaire, espace client ou système de commande n’est présent. Aucune donnée personnelle n’est enregistrée par L’Authentique lors de la simple consultation du site.</p></section>
-        <section><h2>Cookies</h2><p>Le site ne dépose aucun cookie publicitaire, de personnalisation ou de mesure d’audience. Un bandeau de consentement n’est donc pas nécessaire dans cette version.</p></section>
-        <section><h2>Services externes</h2><p>Les liens vers WhatsApp, Instagram, Facebook et Google Maps conduisent vers des services tiers. En les ouvrant, vous quittez ce site et êtes soumis aux politiques de confidentialité de ces plateformes. Aucun contenu de ces services n’est chargé automatiquement ici.</p></section>
-        <section><h2>Hébergement technique</h2><p>L’hébergeur du futur domaine pourra traiter les données techniques strictement nécessaires à la sécurité et au fonctionnement du service, notamment les journaux de connexion. Son identité et ses coordonnées doivent encore être confirmées dans les mentions légales.</p></section>
-        <section><h2>Évolution du site</h2><p>Si un formulaire, un outil de mesure ou un autre traitement de données est ajouté, cette politique sera mise à jour avant son activation et les mécanismes de consentement nécessaires seront mis en place.</p></section>
-        <section><h2>Contact</h2><p>Pour toute question relative à la confidentialité, écrivez à <a href="mailto:authentiquesnackbar@icloud.com">authentiquesnackbar@icloud.com</a> (adresse provisoire à confirmer).</p></section>
+        <p className="legal-intro">
+          Ce site est un site vitrine. Il ne collecte aucune donnée personnelle lors de sa simple
+          consultation et n’utilise ni traceur publicitaire ni outil de mesure d’audience.
+        </p>
+
+        <section>
+          <h2>Responsable du traitement</h2>
+          <p className="legal-address">
+            {legal.publisher}
+            <span>{business.address.street}</span>
+            <span>
+              {business.address.postalCode} {business.address.locality}, {business.address.region}
+            </span>
+            <span><a href={`mailto:${business.email}`}>{business.email}</a></span>
+            <span><a href={phoneHref(business.phone)}>{business.phone}</a></span>
+          </p>
+        </section>
+
+        <section>
+          <h2>Données collectées</h2>
+          <p>Dans sa configuration actuelle, le site ne comporte :</p>
+          <ul className="legal-bullets">
+            <li>aucun compte utilisateur ;</li>
+            <li>aucun formulaire ;</li>
+            <li>aucune commande en ligne ;</li>
+            <li>aucun outil publicitaire ;</li>
+            <li>aucun outil de mesure d’audience ;</li>
+            <li>aucun pixel Meta ;</li>
+            <li>aucun contenu social intégré automatiquement.</li>
+          </ul>
+          <p>
+            La consultation des pages n’entraîne donc aucun enregistrement de données personnelles
+            par {legal.publisher}.
+          </p>
+        </section>
+
+        <section>
+          <h2>Cookies</h2>
+          <p>
+            Aucun cookie nécessitant le consentement de l’utilisateur n’est déposé par le site dans
+            sa configuration actuelle. Aucune bannière de consentement n’est donc affichée.
+          </p>
+        </section>
+
+        <section>
+          <h2>Journaux techniques</h2>
+          <p>
+            L’hébergeur {legal.host} peut traiter des informations techniques liées à la diffusion du
+            site, notamment l’adresse IP, la date et l’heure des requêtes, le navigateur utilisé et
+            les journaux nécessaires à la sécurité, au diagnostic et au bon fonctionnement de
+            l’hébergement. Ces traitements relèvent de l’exploitation technique du service
+            d’hébergement.
+          </p>
+        </section>
+
+        <section>
+          <h2>Services externes</h2>
+          <p>
+            Le site propose des liens vers WhatsApp, Instagram, Facebook et Google Maps. Aucun
+            contenu de ces services n’est chargé avant que l’utilisateur ne choisisse de suivre le
+            lien. En ouvrant l’un de ces liens, vous quittez ce site et les politiques de
+            confidentialité des plateformes concernées s’appliquent.
+          </p>
+        </section>
+
+        <section>
+          <h2>Droits</h2>
+          <p>
+            Vous disposez, lorsque ces droits sont applicables, d’un droit d’accès, de rectification,
+            d’effacement, de limitation et d’opposition concernant les données vous concernant. Pour
+            exercer ces droits, écrivez à{" "}
+            <a href={`mailto:${business.email}`}>{business.email}</a>.
+          </p>
+          <p>
+            Vous pouvez également introduire une réclamation auprès de la Commission nationale de
+            l’informatique et des libertés (CNIL).
+          </p>
+        </section>
+
+        <section>
+          <h2>Mise à jour</h2>
+          <p>
+            La présente politique pourra être mise à jour en cas d’évolution des fonctionnalités ou
+            des traitements mis en œuvre sur le site.
+          </p>
+        </section>
       </div>
     </main>
   );

@@ -1,0 +1,51 @@
+# L'Authentique — hébergement mutualisé OVH (site statique exporté par Next.js)
+
+Options -Indexes
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # 1. Forcer HTTPS (OVH transmet le protocole d'origine dans X-Forwarded-Proto).
+  RewriteCond %{HTTP:X-Forwarded-Proto} =http [NC]
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # 2. Rediriger www vers le domaine canonique, en conservant chemin et paramètres.
+  RewriteCond %{HTTP_HOST} ^www\.snack-bar-lauthentique\.fr$ [NC]
+  RewriteRule ^ https://snack-bar-lauthentique.fr%{REQUEST_URI} [R=301,L]
+
+  # 3. Ne jamais réécrire un fichier ou un dossier réellement présent
+  #    (robots.txt, sitemap.xml, images, /carte/, /qr-menu/, ...).
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # 4. Export Next.js avec trailingSlash : /carte -> /carte/index.html
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^(.*)$ /$1/index.html [L]
+</IfModule>
+
+# Page 404 statique générée par Next.js.
+ErrorDocument 404 /404.html
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml application/javascript application/json image/svg+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/html "access plus 1 hour"
+  ExpiresByType text/plain "access plus 1 hour"
+  ExpiresByType application/xml "access plus 1 hour"
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Strict-Transport-Security "max-age=31536000"
+</IfModule>

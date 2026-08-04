@@ -9,9 +9,8 @@ export const metadata: Metadata = pageMetadata(
   "/mentions-legales",
 );
 
-function Todo({ children }: { children: React.ReactNode }) {
-  return <span className="legal-todo">À confirmer — {children}</span>;
-}
+const { legal } = business;
+const authority = legal.regulatedActivityAuthority;
 
 export default function LegalPage() {
   return (
@@ -19,28 +18,118 @@ export default function LegalPage() {
       <div className="container legal-page__inner">
         <p className="eyebrow">Informations juridiques</p>
         <h1>Mentions légales</h1>
-        <p className="legal-intro">Les informations marquées « à confirmer » doivent être validées sur le Kbis et avec le propriétaire avant la mise en production.</p>
+        <p className="legal-intro">
+          Informations relatives à l’éditeur, à l’hébergement et aux conditions d’utilisation du site
+          de {business.brandName}.
+        </p>
 
-        <section><h2>Éditeur du site</h2><dl className="legal-list">
-          <div><dt>Éditeur</dt><dd>{business.legal.publisher}</dd></div>
-          <div><dt>Forme juridique</dt><dd>{business.legal.legalForm}</dd></div>
-          <div><dt>Capital social</dt><dd>{business.legal.shareCapital}</dd></div>
-          <div><dt>Enseigne</dt><dd>{business.legal.officialBrand}</dd></div>
-          <div><dt>Nom commercial</dt><dd>{business.brandName}</dd></div>
-          <div><dt>Adresse</dt><dd>{business.address.street}, {business.address.postalCode} {business.address.locality}, {business.address.region}</dd></div>
-          <div><dt>SIREN</dt><dd>{business.legal.siren}</dd></div>
-          <div><dt>SIRET</dt><dd>{business.legal.siret}</dd></div>
-          <div><dt>Téléphone</dt><dd><a href={phoneHref(business.phone)}>{business.phone}</a> <small>(provisoire)</small></dd></div>
-          <div><dt>E-mail</dt><dd><a href={`mailto:${business.email}`}>{business.email}</a> <small>(provisoire)</small></dd></div>
-          <div><dt>Directeur ou directrice de publication</dt><dd><Todo>nom non validé</Todo></dd></div>
-          <div><dt>TVA intracommunautaire</dt><dd><Todo>à ajouter si le client souhaite l’afficher</Todo></dd></div>
-        </dl></section>
+        <section>
+          <h2>Éditeur du site</h2>
+          <dl className="legal-list">
+            <div><dt>Dénomination sociale</dt><dd>{legal.publisher}</dd></div>
+            <div><dt>Nom commercial</dt><dd>{business.brandName}</dd></div>
+            <div><dt>Enseignes</dt><dd>{legal.officialBrand}</dd></div>
+            <div><dt>Forme juridique</dt><dd>{legal.legalForm}</dd></div>
+            <div><dt>Capital social</dt><dd>{legal.shareCapital}</dd></div>
+            <div><dt>Cogérants</dt><dd>{legal.managers.join(" · ")}</dd></div>
+          </dl>
+        </section>
 
-        <section><h2>Nom de domaine</h2><p><Todo>domaine final à définir ; le contrôle de snack-bar-lauthentique.fr n’est pas confirmé</Todo></p></section>
-        <section><h2>Hébergement</h2><dl className="legal-list"><div><dt>Hébergeur</dt><dd><Todo>raison sociale à définir</Todo></dd></div><div><dt>Adresse</dt><dd><Todo>adresse de l’hébergeur</Todo></dd></div><div><dt>Téléphone</dt><dd><Todo>téléphone de l’hébergeur</Todo></dd></div></dl></section>
-        <section><h2>Propriété intellectuelle</h2><p><Todo>clause de propriété intellectuelle à valider</Todo>. Les marques, textes, visuels et éléments graphiques restent la propriété de leurs titulaires respectifs. Toute réutilisation doit faire l’objet d’une autorisation préalable.</p></section>
-        <section><h2>Crédits photographiques</h2><p><Todo>photographe et crédits à renseigner après livraison des images originales</Todo>.</p></section>
-        <section><h2>Responsabilité</h2><p>Les horaires, la carte et les disponibilités peuvent évoluer. Les informations provisoires publiées sur ce site doivent être confirmées directement auprès de L’Authentique avant un déplacement.</p></section>
+        <section>
+          <h2>Direction de la publication</h2>
+          <p>{legal.publicationDirectors}</p>
+        </section>
+
+        <section>
+          <h2>Coordonnées</h2>
+          <dl className="legal-list">
+            <div>
+              <dt>Adresse</dt>
+              <dd>
+                {business.address.street}, {business.address.postalCode} {business.address.locality},{" "}
+                {business.address.region}
+              </dd>
+            </div>
+            <div><dt>Téléphone</dt><dd><a href={phoneHref(business.phone)}>{business.phone}</a></dd></div>
+            <div><dt>E-mail</dt><dd><a href={`mailto:${business.email}`}>{business.email}</a></dd></div>
+          </dl>
+        </section>
+
+        <section>
+          <h2>Immatriculation</h2>
+          <dl className="legal-list">
+            <div><dt>SIREN</dt><dd>{legal.siren}</dd></div>
+            <div><dt>SIRET</dt><dd>{legal.siret}</dd></div>
+            <div><dt>RCS</dt><dd>{legal.rcs}</dd></div>
+            <div><dt>TVA intracommunautaire</dt><dd>{legal.vatNumber}</dd></div>
+          </dl>
+        </section>
+
+        <section>
+          <h2>Nom de domaine</h2>
+          <p>
+            Le site est publié sous le nom de domaine <strong>{legal.domainName}</strong>, exploité
+            par {legal.publisher}.
+          </p>
+        </section>
+
+        <section>
+          <h2>Hébergement</h2>
+          <dl className="legal-list">
+            <div><dt>Hébergeur</dt><dd>{legal.host}</dd></div>
+            <div><dt>Forme juridique</dt><dd>{legal.hostLegalForm}</dd></div>
+            <div><dt>Capital social</dt><dd>{legal.hostShareCapital}</dd></div>
+            <div><dt>RCS</dt><dd>{legal.hostRcs}</dd></div>
+            <div><dt>TVA intracommunautaire</dt><dd>{legal.hostVatNumber}</dd></div>
+            <div><dt>Adresse</dt><dd>{legal.hostAddress}</dd></div>
+            <div><dt>Téléphone</dt><dd>{legal.hostPhone}</dd></div>
+          </dl>
+        </section>
+
+        <section>
+          <h2>Activité réglementée</h2>
+          <p>
+            L’établissement exerce une activité de restauration et de débit de boissons. La
+            déclaration liée à l’exploitation d’un débit de boissons relève de l’autorité municipale
+            compétente :
+          </p>
+          <p className="legal-address">
+            {authority.name}
+            {authority.addressLines.map((line) => (
+              <span key={line}>{line}</span>
+            ))}
+            <span>Téléphone : {authority.phone}</span>
+          </p>
+        </section>
+
+        <section>
+          <h2>Propriété intellectuelle</h2>
+          <p>{legal.intellectualProperty}</p>
+        </section>
+
+        <section>
+          <h2>Crédits photographiques</h2>
+          <p>{legal.photoCredits}</p>
+        </section>
+
+        <section>
+          <h2>Responsabilité</h2>
+          <p>
+            Les informations, horaires, produits, prix et disponibilités peuvent évoluer.
+            {" "}{business.brandName} s’efforce de maintenir le site à jour, mais invite les visiteurs
+            à le contacter directement pour toute information nécessitant une confirmation immédiate.
+          </p>
+        </section>
+
+        <section>
+          <h2>Liens externes</h2>
+          <p>
+            Le site propose des liens vers des services tiers, notamment WhatsApp, Instagram,
+            Facebook et Google Maps. Ces services disposent de leurs propres conditions d’utilisation
+            et de leurs propres politiques de confidentialité.{" "}{legal.publisher} n’exerce aucun
+            contrôle sur leurs contenus et ne saurait être tenue responsable de leur fonctionnement.
+          </p>
+        </section>
       </div>
     </main>
   );

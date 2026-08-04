@@ -30,7 +30,7 @@ export function OpeningHoursSection() {
             <div className="practical__hours">
               <div className="practical__mini-title"><Clock3 aria-hidden="true" /><h3>Horaires</h3></div>
               <OpeningHoursList />
-              <p className="practical__note">Service cuisine jusqu’à 18h30 du lundi au samedi, information à confirmer avant mise en ligne définitive.</p>
+              <p className="practical__note">Service cuisine jusqu’à 18h30 du lundi au samedi.</p>
             </div>
 
             <div className="practical__contact">

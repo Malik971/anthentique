@@ -172,7 +172,7 @@ export function getRestaurantStatus(
   }
 
   const nextOpening = getNextOpening(openingHours, timezone, now, exceptions);
-  let detail = "Horaires à confirmer";
+  let detail = "Nous contacter pour connaître les horaires";
   if (nextOpening) {
     const when =
       nextOpening.offsetDays === 0

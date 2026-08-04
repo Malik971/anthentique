@@ -28,7 +28,7 @@ export function RestaurantJsonLd() {
       addressCountry: business.address.country,
     },
     openingHoursSpecification,
-    menu: `${business.siteUrl}/carte`,
+    menu: `${business.siteUrl}/carte/`,
     servesCuisine: ["Restauration traditionnelle", "Snacking", "Cocktails", "Jus frais", "Glaces"],
     sameAs,
     hasMap: business.mapsUrl,

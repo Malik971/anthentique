@@ -2,7 +2,9 @@ import type { BusinessInfo, DayKey } from "@/lib/types";
 
 export const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=100057598203786";
 
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, "");
+export const PRODUCTION_SITE_URL = "https://snack-bar-lauthentique.fr";
+
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? PRODUCTION_SITE_URL).replace(/\/$/, "");
 const mapsQuery = encodeURIComponent(
   "L'Authentique, Local 16, Village Artisanal Galbas, 97180 Sainte-Anne, Guadeloupe",
 );
@@ -46,7 +48,6 @@ export const business: BusinessInfo = {
   siteUrl,
   currency: "EUR",
   timezone: "America/Guadeloupe",
-  // Horaires confirmés par le propriétaire du lundi au samedi.
   openingHours: {
     monday: { open: "09:00", close: "20:00" },
     tuesday: { open: "09:00", close: "20:00" },
@@ -54,8 +55,7 @@ export const business: BusinessInfo = {
     thursday: { open: "09:00", close: "20:00" },
     friday: { open: "09:00", close: "20:00" },
     saturday: { open: "09:00", close: "20:00" },
-    // Valeur provisoire issue de sources publiques concordantes, à confirmer avec le propriétaire.
-    sunday: { open: "09:00", close: "15:00", needsClientConfirmation: true },
+    sunday: { open: "09:00", close: "15:00" },
   },
   // Structure prête pour les jours fériés et fermetures exceptionnelles.
   openingExceptions: [],
@@ -70,23 +70,36 @@ export const business: BusinessInfo = {
   services: ["Sur place", "À emporter", "Cocktails", "Jus frais", "Glaces"],
   legal: {
     publisher: "SNACK’ADY",
-    legalForm: "SARL",
+    legalForm: "EURL, entreprise unipersonnelle à responsabilité limitée",
     shareCapital: "20 000 €",
     siren: "953 066 370",
     siret: "953 066 370 00016",
+    rcs: "953 066 370 RCS Pointe-à-Pitre",
+    vatNumber: "FR59953066370",
     officialBrand: "AUTHENTIQUE ET L’AUTHENTIQUE",
-    // TODO: champs volontairement non publiés avant validation du Kbis et du propriétaire.
-    publicationDirector: undefined,
-    managers: undefined,
-    host: undefined,
-    hostAddress: undefined,
-    hostPhone: undefined,
-    vatNumber: undefined,
-    photoCredits: undefined,
-    intellectualProperty: undefined,
+    domainName: "snack-bar-lauthentique.fr",
+    publicationDirectors:
+      "Patrick Aloyse Léon SEYER et Adriana SEYER née CANNEDDU, cogérants de SNACK’ADY.",
+    managers: ["Patrick Aloyse Léon SEYER", "Adriana SEYER née CANNEDDU"],
+    host: "OVH SAS",
+    hostLegalForm: "Société par actions simplifiée",
+    hostShareCapital: "50 000 000 €",
+    hostRcs: "424 761 419 00045 RCS Lille Métropole",
+    hostVatNumber: "FR22424761419",
+    hostAddress: "2 rue Kellermann, 59100 Roubaix, France",
+    hostPhone: "+33 9 72 10 10 07",
+    regulatedActivityAuthority: {
+      name: "Mairie de Sainte-Anne",
+      addressLines: ["Hôtel de Ville", "Place Schœlcher", "97180 Sainte-Anne", "Guadeloupe"],
+      phone: "+590 590 85 48 60",
+    },
+    photoCredits:
+      "L’Authentique / SNACK’ADY. Les photographies et vidéos présentes sur le site ont été fournies par l’établissement et sont utilisées avec son autorisation.",
+    intellectualProperty:
+      "Le présent site, sa structure, son identité visuelle, ses textes, ses logos et ses contenus sont protégés par la législation applicable à la propriété intellectuelle. Les marques, noms commerciaux, logos et contenus propres à L’Authentique sont la propriété de SNACK’ADY ou sont exploités avec l’autorisation de leurs titulaires. Toute reproduction, représentation, adaptation ou exploitation totale ou partielle sans autorisation préalable est interdite.",
   },
   contentValidation: {
-    openingHoursConfirmed: false,
+    openingHoursConfirmed: true,
     breakfastConfirmed: false,
     terraceConfirmed: false,
     storyEnabled: false,

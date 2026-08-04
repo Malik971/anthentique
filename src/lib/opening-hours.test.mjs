@@ -20,7 +20,7 @@ const openingHours = {
   thursday: { open: "09:00", close: "20:00" },
   friday: { open: "09:00", close: "20:00" },
   saturday: { open: "09:00", close: "20:00" },
-  sunday: { open: "09:00", close: "15:00", needsClientConfirmation: true },
+  sunday: { open: "09:00", close: "15:00" },
 };
 const timezone = "America/Guadeloupe";
 

@@ -2,11 +2,10 @@ import { mkdir } from "node:fs/promises";
 import path from "node:path";
 import QRCode from "qrcode";
 
-const rawSiteUrl = process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL;
+// Domaine de production par défaut : la génération du QR ne dépend d’aucun secret.
+const PRODUCTION_SITE_URL = "https://snack-bar-lauthentique.fr";
 
-if (!rawSiteUrl) {
-  throw new Error("SITE_URL ou NEXT_PUBLIC_SITE_URL doit être défini pour générer le QR code.");
-}
+const rawSiteUrl = process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || PRODUCTION_SITE_URL;
 
 let siteUrl;
 try {
@@ -23,7 +22,8 @@ if (["localhost", "127.0.0.1", "::1"].includes(siteUrl.hostname)) {
   throw new Error("Refus de générer un QR code permanent vers une adresse locale.");
 }
 
-const menuUrl = new URL("/carte", siteUrl).toString();
+// Le QR imprimé doit pointer explicitement vers /carte/ (export statique avec trailingSlash).
+const menuUrl = new URL("/carte/", siteUrl).toString();
 const outputDirectory = path.join(process.cwd(), "public", "qr");
 await mkdir(outputDirectory, { recursive: true });
 

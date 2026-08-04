@@ -11,7 +11,6 @@ export interface OpeningSlot {
   open: string;
   close: string;
   closed?: boolean;
-  needsClientConfirmation?: boolean;
 }
 
 export type OpeningHours = Record<DayKey, OpeningSlot>;
@@ -33,21 +32,34 @@ export interface Address {
   displayLines: string[];
 }
 
+export interface RegulatedActivityAuthority {
+  name: string;
+  addressLines: string[];
+  phone: string;
+}
+
 export interface LegalInfo {
   publisher: string;
   legalForm: string;
   shareCapital: string;
   siren: string;
   siret: string;
+  rcs: string;
+  vatNumber: string;
   officialBrand: string;
-  publicationDirector?: string;
-  managers?: string[];
-  host?: string;
-  hostAddress?: string;
-  hostPhone?: string;
-  vatNumber?: string;
-  photoCredits?: string;
-  intellectualProperty?: string;
+  domainName: string;
+  publicationDirectors: string;
+  managers: string[];
+  host: string;
+  hostLegalForm: string;
+  hostShareCapital: string;
+  hostRcs: string;
+  hostVatNumber: string;
+  hostAddress: string;
+  hostPhone: string;
+  regulatedActivityAuthority: RegulatedActivityAuthority;
+  photoCredits: string;
+  intellectualProperty: string;
 }
 
 export interface BusinessInfo {
@@ -80,29 +92,6 @@ export interface BusinessInfo {
   };
 }
 
-export interface MenuCategory {
-  id: string;
-  slug: string;
-  name: string;
-  shortName: string;
-  description: string;
-  order: number;
-}
-
-export interface MenuItem {
-  id: string;
-  categoryId: string;
-  name: string;
-  description?: string;
-  price?: number;
-  image?: string;
-  featured: boolean;
-  available?: boolean;
-  tags?: string[];
-  allergens?: string[];
-  editorialStatus: "draft" | "confirmed";
-}
-
 export interface GalleryImage {
   src: string;
   alt: string;
@@ -110,7 +99,6 @@ export interface GalleryImage {
   height: number;
   category?: string;
   featured?: boolean;
-  placeholder: boolean;
 }
 
 export interface Review {

@@ -8,7 +8,6 @@ export const galleryImages: GalleryImage[] = [
     height: 1200,
     category: "L’adresse",
     featured: true,
-    placeholder: false,
   },
   {
     src: "/images/food/croque-monsieur.webp",
@@ -17,7 +16,6 @@ export const galleryImages: GalleryImage[] = [
     height: 1600,
     category: "À table",
     featured: true,
-    placeholder: false,
   },
   {
     src: "/images/location/accueil-lauthentique.webp",
@@ -26,7 +24,6 @@ export const galleryImages: GalleryImage[] = [
     height: 1600,
     category: "L’accueil",
     featured: true,
-    placeholder: false,
   },
   {
     src: "/images/location/terrasse-lauthentique.webp",
@@ -34,7 +31,6 @@ export const galleryImages: GalleryImage[] = [
     width: 1012,
     height: 1800,
     category: "La terrasse",
-    placeholder: false,
   },
   {
     src: "/images/food/assiette-a-partager.webp",
@@ -42,7 +38,6 @@ export const galleryImages: GalleryImage[] = [
     width: 1200,
     height: 1600,
     category: "Cuisine",
-    placeholder: false,
   },
   {
     src: "/images/drinks/cocktail-aperol-terrasse.webp",
@@ -50,7 +45,6 @@ export const galleryImages: GalleryImage[] = [
     width: 1200,
     height: 1600,
     category: "Cocktails",
-    placeholder: false,
   },
   {
     src: "/images/location/bar-lauthentique.webp",
@@ -58,7 +52,6 @@ export const galleryImages: GalleryImage[] = [
     width: 1800,
     height: 1350,
     category: "Le bar",
-    placeholder: false,
   },
   {
     src: "/images/food/cassolette-mer.webp",
@@ -66,7 +59,6 @@ export const galleryImages: GalleryImage[] = [
     width: 1200,
     height: 1600,
     category: "Saveurs marines",
-    placeholder: false,
   },
   {
     src: "/images/drinks/biere-gwada.webp",
@@ -74,7 +66,6 @@ export const galleryImages: GalleryImage[] = [
     width: 1200,
     height: 1600,
     category: "Boissons locales",
-    placeholder: false,
   },
   {
     src: "/images/food/assiette-poisson.webp",
@@ -82,6 +73,5 @@ export const galleryImages: GalleryImage[] = [
     width: 1200,
     height: 1600,
     category: "Le plat du moment",
-    placeholder: false,
   },
 ];
