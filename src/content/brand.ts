@@ -11,4 +11,6 @@ export const brandPalette = {
   yellow: "#f1cf45",
   coral: "#e78691",
   violet: "#8570b8",
+  // Fond principal du mode sombre, aligné sur --night-background dans globals.css.
+  night: "#0c1a20",
 } as const;

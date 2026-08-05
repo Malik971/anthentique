@@ -4,6 +4,8 @@ import { brandPalette } from "@/content/brand";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { RestaurantJsonLd } from "@/components/seo/RestaurantJsonLd";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { ThemeColorSync } from "@/components/theme/ThemeColorSync";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -26,17 +28,24 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: brandPalette.sky300,
+  colorScheme: "light dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: brandPalette.sky300 },
+    { media: "(prefers-color-scheme: dark)", color: brandPalette.night },
+  ],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr">
+    <html lang="fr" suppressHydrationWarning>
       <body>
-        <a className="skip-link" href="#contenu">Aller au contenu</a>
-        <Header />
-        {children}
-        <Footer />
+        <ThemeProvider>
+          <ThemeColorSync />
+          <a className="skip-link" href="#contenu">Aller au contenu</a>
+          <Header />
+          {children}
+          <Footer />
+        </ThemeProvider>
         <RestaurantJsonLd />
       </body>
     </html>

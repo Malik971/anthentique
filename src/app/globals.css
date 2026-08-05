@@ -25,21 +25,103 @@
   --font-display: "Plus Jakarta Sans", "Avenir Next", "Segoe UI Variable Display", "Segoe UI", Arial, sans-serif;
   --font-body: Manrope, "DM Sans", "Avenir Next", "Segoe UI Variable Text", "Segoe UI", Arial, sans-serif;
   --font-geo: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", Arial, sans-serif;
-  --cream: var(--brand-sky-50);
-  --paper: var(--brand-white);
-  --sand: var(--brand-sky-100);
-  --ink: var(--brand-ink);
-  --ink-soft: #4a616b;
+  --cream: var(--page-background);
+  --paper: var(--surface-primary);
+  --sand: var(--surface-secondary);
+  --ink: var(--text-primary);
+  --ink-soft: var(--text-secondary);
   --ocean: var(--brand-sky-500);
   --ocean-deep: var(--brand-sky-700);
   --coral: var(--brand-coral);
   --coral-deep: var(--brand-coral-deep);
   --sun: var(--brand-yellow);
   --leaf: var(--status-open);
-  --line: rgba(22, 45, 56, 0.15);
+  --line: var(--border-subtle);
+  --content: 1240px;
+
+  /* Palette nocturne, dérivée du bleu clair du logo */
+  --night-background: #0c1a20;
+  --night-paper: #10252c;
+  --night-surface: #14313a;
+  --night-surface-elevated: #193b45;
+  --night-text: #f3fafc;
+  --night-text-soft: #b7cbd1;
+  --night-line: rgba(197, 231, 241, 0.16);
+  --night-sky: #68cfe0;
+  --night-sky-strong: #39b8cf;
+  --night-coral: #ef9aa4;
+  --night-yellow: #f4d75a;
+  --night-shadow: rgba(0, 0, 0, 0.32);
+}
+
+/* Variables sémantiques — mode clair (valeurs actuelles validées) */
+:root {
+  color-scheme: light;
+  --page-background: var(--brand-sky-50);
+  --surface-primary: var(--brand-white);
+  --surface-secondary: var(--brand-sky-100);
+  --surface-elevated: var(--brand-sky-200);
+  --surface-muted: var(--brand-soft-white);
+  --text-primary: var(--brand-ink);
+  --text-secondary: #4a616b;
+  --text-inverse: var(--brand-white);
+  --border-subtle: rgba(22, 45, 56, 0.15);
+  --border-strong: rgba(22, 45, 56, 0.34);
+  --border-hairline: rgba(23, 50, 58, 0.13);
+  --header-background: rgba(251, 253, 253, 0.97);
+  --topline-background: var(--brand-sky-500);
+  --topline-text: var(--brand-ink);
+  --footer-background: var(--brand-ink);
+  --hero-background: var(--brand-ink);
   --shadow-soft: 0 20px 60px rgba(26, 57, 65, 0.12);
   --shadow-photo: 0 28px 70px rgba(24, 48, 55, 0.2);
-  --content: 1240px;
+
+  --hero-image-desktop: url("/images/hero/hero-lauthentique-village-arc-en-ciel.webp");
+  --hero-image-mobile: url("/images/hero/hero-lauthentique-mobile.webp");
+  --hero-position-desktop: center 48%;
+  --hero-position-mobile: center 48%;
+  --hero-veil: linear-gradient(90deg, rgba(6, 15, 19, .58) 0%, rgba(6, 15, 19, .36) 44%, rgba(6, 15, 19, .08) 78%);
+}
+
+/* Variables sémantiques — mode sombre */
+.dark {
+  color-scheme: dark;
+  --page-background: var(--night-background);
+  --surface-primary: var(--night-paper);
+  --surface-secondary: var(--night-surface);
+  --surface-elevated: var(--night-surface-elevated);
+  --surface-muted: #0f222a;
+  --text-primary: var(--night-text);
+  --text-secondary: var(--night-text-soft);
+  --text-inverse: var(--night-text);
+  --border-subtle: var(--night-line);
+  --border-strong: rgba(243, 250, 252, 0.30);
+  --border-hairline: var(--night-line);
+  --header-background: rgba(12, 26, 32, 0.92);
+  --topline-background: #0a2029;
+  --topline-text: var(--night-sky);
+  --footer-background: #081419;
+  --hero-background: var(--night-background);
+  --shadow-soft: 0 20px 60px var(--night-shadow);
+  --shadow-photo: 0 28px 70px rgba(0, 0, 0, 0.42);
+
+  --hero-image-desktop: url("/images/hero/hero-lauthentique-night-desktop.webp");
+  --hero-image-mobile: url("/images/hero/hero-lauthentique-night-mobile.webp");
+  --hero-position-desktop: 55% center;
+  --hero-position-mobile: center 45%;
+  /* Voile bleu nuit concentré sur la zone de texte, discret côté ciel et enseigne */
+  --hero-veil: linear-gradient(90deg, rgba(7, 20, 27, .78) 0%, rgba(8, 24, 32, .56) 42%, rgba(10, 28, 36, .16) 76%, rgba(10, 28, 36, .06) 100%);
+
+  --cream: var(--page-background);
+  --paper: var(--surface-primary);
+  --sand: var(--surface-secondary);
+  --ink: var(--text-primary);
+  --ink-soft: var(--text-secondary);
+  --ocean: var(--night-sky);
+  --ocean-deep: var(--night-sky);
+  --coral: var(--night-coral);
+  --coral-deep: var(--night-coral);
+  --sun: var(--night-yellow);
 }
 
 * { box-sizing: border-box; }
@@ -184,7 +266,7 @@ h3 { font-size: 1.45rem; line-height: 1.15; }
 .experience__copy h2 { margin-bottom: 1.6rem; max-width: 650px; }
 .experience__copy > p:not(.eyebrow) { color: var(--ink-soft); margin-bottom: 2rem; }
 .experience__facts { display: grid; gap: .8rem; margin-bottom: 2rem; }
-.experience__facts > div { display: flex; gap: .9rem; align-items: center; padding-block: .75rem; border-bottom: 1px solid rgba(23,50,58,.13); }
+.experience__facts > div { display: flex; gap: .9rem; align-items: center; padding-block: .75rem; border-bottom: 1px solid var(--border-hairline); }
 .experience__facts svg { width: 22px; color: var(--coral); flex: 0 0 auto; }
 .experience__facts span { display: flex; flex-direction: column; }
 .experience__facts strong { font-size: .85rem; }
@@ -264,7 +346,7 @@ h3 { font-size: 1.45rem; line-height: 1.15; }
 /* Footer */
 .site-footer { background: #10282f; color: white; padding: 4.7rem 0 1.5rem; }
 .footer-grid { display: grid; grid-template-columns: 1.35fr 1fr .85fr .7fr; gap: clamp(2rem, 5vw, 5rem); }
-.footer-brand-block img { width: min(250px, 100%); filter: brightness(0) invert(1); }
+.footer-brand-block img { width: min(250px, 100%); }
 .footer-brand-block > p { max-width: 360px; margin: 1.2rem 0 0; color: rgba(255,255,255,.58); font-size: .79rem; }
 .footer-title { margin-bottom: .8rem; color: var(--sun); font-size: .68rem; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
 .footer-grid > div:not(.footer-brand-block) { display: flex; flex-direction: column; align-items: flex-start; gap: .58rem; }
@@ -304,7 +386,7 @@ h3 { font-size: 1.45rem; line-height: 1.15; }
 .menu-documents__heading > p { margin: 0; color: var(--ink-soft); }
 .menu-documents__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; align-items: start; }
 .menu-sheet-card { margin: 0; background: #eaf5f8; border: 1px solid var(--line); box-shadow: var(--shadow-soft); }
-.menu-sheet-card__image { position: relative; min-height: min(1120px, 132vw); aspect-ratio: 1010 / 2200; background: white; overflow: hidden; }
+.menu-sheet-card__image { position: relative; aspect-ratio: 1010 / 2200; background: white; overflow: hidden; }
 .menu-sheet-card__image img { object-fit: contain; }
 .menu-sheet-card figcaption { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: .9rem 1rem; font-size: .7rem; font-weight: 820; }
 .menu-sheet-card figcaption span:last-child { display: inline-flex; align-items: center; gap: .45rem; color: var(--ink-soft); }
@@ -348,8 +430,8 @@ h3 { font-size: 1.45rem; line-height: 1.15; }
 /* QR page */
 .qr-page { min-height: 100vh; background: #e9e2d9; padding-block: 2rem 4rem; }
 .qr-page__toolbar { display: flex; justify-content: space-between; gap: 1rem; align-items: center; margin-bottom: 1.25rem; }
-.qr-page__toolbar a, .qr-page__toolbar button { min-height: 44px; display: inline-flex; align-items: center; gap: .5rem; border: 1px solid var(--line); background: var(--paper); padding: .65rem .85rem; font-size: .75rem; font-weight: 800; cursor: pointer; }
-.qr-sheet { width: min(100%, 700px); min-height: 930px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--paper); padding: clamp(2rem, 7vw, 5rem); text-align: center; box-shadow: var(--shadow-soft); }
+.qr-page__toolbar a, .qr-page__toolbar button { min-height: 44px; display: inline-flex; align-items: center; gap: .5rem; border: 1px solid var(--line); background: var(--paper); color: var(--text-primary); padding: .65rem .85rem; font-size: .75rem; font-weight: 800; cursor: pointer; }
+.qr-sheet { width: min(100%, 700px); min-height: 930px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--brand-white); color: var(--brand-ink); padding: clamp(2rem, 7vw, 5rem); text-align: center; box-shadow: var(--shadow-soft); }
 .qr-sheet__brand { display: flex; align-items: center; gap: .8rem; margin-bottom: 2rem; }
 .qr-sheet__brand span { width: 48px; height: 48px; display: grid; place-items: center; background: var(--ocean-deep); color: white; font-family: var(--font-display); }
 .qr-sheet__brand p { margin: 0; font-family: var(--font-display); font-size: 1.7rem; }
@@ -732,20 +814,20 @@ h1, h2, h3 {
 }
 
 .site-header__topline {
-  background: var(--brand-sky-500);
-  color: var(--brand-ink);
+  background: var(--topline-background);
+  color: var(--topline-text);
 }
 
 .site-header__topline .status-badge,
 .site-header__topline .status-badge.is-open,
 .site-header__topline .status-badge.is-closed,
 .site-header__topline .status-badge.is-pending {
-  color: var(--brand-ink);
+  color: var(--topline-text);
 }
 
 .site-header__main {
-  background: rgba(251, 253, 253, .97);
-  border-bottom-color: var(--line);
+  background: var(--header-background);
+  border-bottom-color: var(--border-subtle);
 }
 
 .header-cta {
@@ -762,7 +844,7 @@ h1, h2, h3 {
   display: grid;
   align-items: center;
   padding: 0;
-  background: var(--brand-ink);
+  background: var(--hero-background);
   color: var(--brand-white);
   isolation: isolate;
 }
@@ -770,11 +852,16 @@ h1, h2, h3 {
 .hero::before { display: none; }
 .hero__media,
 .hero__veil { position: absolute; inset: 0; }
-.hero__media { z-index: -2; }
-.hero__media img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center 48%; }
+.hero__media {
+  z-index: -2;
+  background-image: var(--hero-image-desktop);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: var(--hero-position-desktop);
+}
 .hero__veil {
   z-index: -1;
-  background: linear-gradient(90deg, rgba(6, 15, 19, .58) 0%, rgba(6, 15, 19, .36) 44%, rgba(6, 15, 19, .08) 78%);
+  background: var(--hero-veil);
 }
 .hero__content { padding-block: clamp(3rem, 7vw, 6rem); }
 .hero__copy { width: min(100%, 700px); padding: 0; }
@@ -825,46 +912,46 @@ h1, h2, h3 {
 .branded-social--email .branded-social__icon { background: var(--brand-sky-700); color: var(--brand-white); }
 .branded-social--compact { padding-inline: .9rem; }
 
-.quick-info { background: var(--brand-sky-100); color: var(--brand-ink); border-bottom: 1px solid var(--line); }
+.quick-info { background: var(--surface-secondary); color: var(--text-primary); border-bottom: 1px solid var(--border-subtle); }
 .quick-info__today { border-color: var(--line); }
 .quick-info__today > svg,
 .quick-info__links svg { color: var(--brand-sky-700); }
 .quick-info__links > a { border-color: var(--line); }
-.quick-info__links > a:hover { background: var(--brand-sky-200); }
+.quick-info__links > a:hover { background: var(--surface-elevated); }
 .quick-info__today small,
 .quick-info__links small { color: var(--ink-soft); }
 .quick-info__today > a.is-open .quick-info__status-dot { background: var(--status-open); }
 .quick-info__today > a.is-closed .quick-info__status-dot { background: var(--status-closed); }
 .quick-info__links a[href*="wa.me"] svg { color: var(--brand-whatsapp); }
 
-.menu-showcase { background: var(--brand-white); }
-.menu-showcase__qr { background: var(--brand-sky-200); color: var(--brand-ink); }
+.menu-showcase { background: var(--surface-primary); }
+.menu-showcase__qr { background: var(--surface-elevated); color: var(--text-primary); }
 .menu-showcase__qr-copy .eyebrow { color: var(--brand-sky-700); }
 .menu-showcase__qr-copy > p:not(.eyebrow) { color: var(--ink-soft); }
 .menu-showcase__qr-copy .text-link { color: var(--brand-sky-700); }
 .menu-showcase__qr-code { border: 1px solid var(--line); }
 
-.experience { background: var(--brand-sky-50); }
-.experience__photo--small { border-color: var(--brand-sky-50); }
+.experience { background: var(--page-background); }
+.experience__photo--small { border-color: var(--page-background); }
 .experience__stamp { background: var(--brand-violet); font-family: var(--font-geo); }
 .experience__facts svg { color: var(--brand-coral-deep); }
 
-.gallery { background: var(--brand-sky-200); color: var(--brand-ink); }
-.gallery__heading > a { border-color: rgba(22,45,56,.35); }
+.gallery { background: var(--surface-elevated); color: var(--text-primary); }
+.gallery__heading > a { border-color: var(--border-strong); }
 .gallery__item { background: var(--brand-sky-300); }
 .gallery__item figcaption { background: rgba(251,253,253,.9); color: var(--brand-ink); }
 
-.practical { background: var(--brand-soft-white); }
-.practical__shell { background: var(--brand-white); }
+.practical { background: var(--surface-muted); }
+.practical__shell { background: var(--surface-primary); }
 .status-badge.is-open { color: var(--status-open); }
 .status-badge.is-closed { color: var(--status-closed); }
-.practical__hours dl > div.is-today { background: var(--brand-sky-100); border-bottom-color: var(--brand-sky-500); }
-.practical__hours dt span { background: var(--brand-yellow); }
+.practical__hours dl > div.is-today { background: var(--surface-secondary); border-bottom-color: var(--brand-sky-500); }
+.practical__hours dt span { background: var(--brand-yellow); color: var(--brand-ink); }
 .practical__hours dd { display: flex; flex-direction: column; align-items: flex-end; }
 .practical__contact a[href*="wa.me"] svg { color: var(--brand-whatsapp); }
 
-.social-section { background: var(--brand-soft-white); }
-.social-section__card { background: var(--brand-sky-200); color: var(--brand-ink); }
+.social-section { background: var(--surface-muted); }
+.social-section__card { background: var(--surface-elevated); color: var(--text-primary); }
 .social-section__copy .eyebrow { color: var(--brand-sky-700); }
 .social-section__copy > p:not(.eyebrow) { color: var(--ink-soft); }
 .social-section__links { align-items: stretch; }
@@ -872,8 +959,9 @@ h1, h2, h3 {
 .social-section__links a:hover { color: var(--brand-ink); }
 .social-section__links svg:last-child { margin-left: 0; }
 
-.site-footer { background: var(--brand-ink); }
-.footer-brand-block img { filter: none; background: var(--brand-sky-50); }
+.site-footer { background: var(--footer-background); }
+/* Le logo conserve ses vraies couleurs : aucune inversion, simple fond clair de sécurité. */
+.footer-brand-block img { background: var(--brand-sky-50); }
 .footer-title { color: var(--brand-sky-300); }
 .footer-grid a.branded-social--footer {
   min-height: 30px;
@@ -891,35 +979,35 @@ h1, h2, h3 {
 .footer-grid .branded-social--facebook.branded-social--footer .branded-social__icon { background: var(--brand-facebook); color: var(--brand-white); border-radius: 50%; }
 .footer-grid .branded-social--instagram.branded-social--footer .branded-social__icon { background: linear-gradient(135deg, var(--brand-instagram-a), var(--brand-instagram-b) 58%, var(--brand-instagram-c)); color: var(--brand-white); border-radius: 6px; }
 
-.menu-page { background: var(--brand-soft-white); }
-.menu-hero { background: var(--brand-sky-200); color: var(--brand-ink); }
+.menu-page { background: var(--surface-muted); }
+.menu-hero { background: var(--surface-elevated); color: var(--text-primary); }
 .menu-hero::after { border-color: rgba(57,184,207,.18); }
 .menu-hero__back,
 .menu-hero p:last-of-type,
 .menu-hero__status > span { color: var(--ink-soft); }
 .menu-hero .eyebrow { color: var(--brand-sky-700); }
-.menu-hero__actions a { border-color: rgba(22,45,56,.34); background: var(--brand-white); }
+.menu-hero__actions a { border-color: var(--border-strong); background: var(--surface-primary); color: var(--text-primary); }
 .menu-hero__actions a:first-child { background: var(--brand-sky-700); border-color: var(--brand-sky-700); color: var(--brand-white); }
 .menu-hero__actions a[href*="wa.me"] svg { color: var(--brand-whatsapp); }
 .menu-hero__status { border-color: rgba(22,45,56,.25); background: rgba(255,255,255,.45); }
 .menu-hero__status .status-badge.is-open { color: var(--status-open); }
 .menu-hero__status .status-badge.is-closed { color: var(--status-closed); }
 .menu-hero__status .status-badge.is-pending { color: var(--ink-soft); }
-.menu-category-strip { background: var(--brand-yellow); }
+.menu-category-strip { background: var(--brand-yellow); color: var(--brand-ink); }
 .menu-sheet-card { background: var(--brand-sky-100); }
 .menu-sheet-card__image { display: block; }
 .menu-sheet-card__image:focus-visible { outline-offset: 6px; }
-.menu-documents__notice { background: var(--brand-sky-50); border-left-color: var(--brand-coral-deep); }
+.menu-documents__notice { background: var(--page-background); border-left-color: var(--brand-coral-deep); }
 .menu-contact-band { background: var(--brand-sky-500); color: var(--brand-ink); }
 .menu-contact-band .eyebrow { color: var(--brand-ink); }
 .menu-contact-band a { border-color: rgba(22,45,56,.4); }
 .menu-contact-band a:last-child { background: var(--brand-whatsapp); color: var(--brand-ink); }
 .menu-contact-band a:last-child svg { color: var(--brand-white); }
 
-.legal-page { background: var(--brand-sky-50); }
+.legal-page { background: var(--page-background); }
 .legal-intro { border-left-color: var(--brand-coral-deep); }
 
-.qr-page { background: var(--brand-sky-100); }
+.qr-page { background: var(--surface-secondary); }
 .qr-sheet__brand img { width: min(290px, 70vw); height: auto; display: block; }
 .qr-sheet__eyebrow,
 .qr-sheet__instagram { color: var(--brand-sky-700); }
@@ -931,8 +1019,8 @@ h1, h2, h3 {
   align-content: center;
   gap: .55rem;
   border: 2px dashed var(--brand-sky-500);
-  background: var(--brand-sky-50);
-  color: var(--brand-ink);
+  background: var(--surface-secondary);
+  color: var(--text-primary);
   text-align: center;
 }
 .qr-code-pending > span { font-size: clamp(2rem, 8vw, 4.5rem); font-weight: 900; letter-spacing: -.08em; }
@@ -989,3 +1077,234 @@ h1, h2, h3 {
   .mobile-action-bar a { font-size: .55rem; }
   .branded-social { padding-inline: .8rem; font-size: .74rem; }
 }
+
+/* ==========================================================================
+   Mode sombre — ajustements par composant.
+   Les surfaces, textes et bordures suivent les variables sémantiques ; seuls
+   les cas particuliers (contrastes sur couleurs de marque, îlots clairs
+   volontaires comme les menus et le QR) sont traités ici.
+   ========================================================================== */
+
+/* Boutons d'action : le texte repasse en encre sombre sur les aplats éclaircis */
+.dark .action-link--primary,
+.dark .action-link--secondary { color: var(--brand-ink); }
+.dark .action-link--primary:hover,
+.dark .action-link--secondary:hover { color: var(--brand-ink); }
+.dark .mobile-nav a:last-child { color: var(--brand-ink); }
+
+/* Statut ouvert / fermé : couleurs accessibles sur fond bleu nuit */
+.dark .status-badge.is-open { color: #7fd6a0; }
+.dark .status-badge.is-closed { color: #ffa7a2; }
+.dark .status-badge.is-pending { color: var(--night-text-soft); }
+.dark .quick-info__today > a.is-open .quick-info__status-dot { background: #7fd6a0; }
+.dark .quick-info__today > a.is-closed .quick-info__status-dot { background: #ffa7a2; }
+.dark .live-opening.is-open .live-opening__dot { background: #7fd6a0; }
+.dark .live-opening.is-closed .live-opening__dot { background: #ffa7a2; }
+
+/* Panneau d'horaires du hero : verre bleu nuit au lieu du verre blanc */
+.dark .live-opening {
+  background: rgba(13, 32, 40, .88);
+  color: var(--night-text);
+  border-color: rgba(197, 231, 241, .22);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, .45);
+}
+.dark .live-opening svg { color: var(--night-sky); }
+.dark .live-opening small { color: var(--night-text-soft); }
+
+/* Galerie : légende sombre plutôt qu'une pastille blanche sur les photos */
+.dark .gallery__item figcaption { background: rgba(8, 20, 26, .82); color: var(--night-text); }
+.dark .gallery__item { background: var(--night-surface-elevated); }
+
+/* Barre d'actions mobile */
+.dark .mobile-action-bar {
+  background: rgba(16, 37, 44, .97);
+  color: var(--night-text);
+  border-color: var(--night-line);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, .5);
+}
+.dark .mobile-action-bar a { border-right-color: var(--night-line); }
+
+/* Bandeau de contact de la carte : corail plus profond pour rester lisible */
+/* Bandeau de contact : on garde le bleu de marque, dans une déclinaison nocturne */
+.dark .menu-contact-band { background: var(--brand-sky-700); color: var(--night-text); }
+.dark .menu-contact-band .eyebrow { color: var(--night-yellow); }
+.dark .menu-contact-band a { border-color: rgba(243, 250, 252, .38); }
+.dark .menu-contact-band a:last-child { background: var(--brand-whatsapp); color: var(--brand-ink); }
+
+/* Menus : cadre sombre, page du menu toujours sur blanc et jamais filtrée */
+.dark .menu-sheet-card {
+  background: var(--surface-elevated);
+  border-color: var(--night-line);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, .4);
+}
+.dark .menu-sheet-card__image { background: var(--brand-white); }
+
+/* Îlots volontairement clairs : fiche QR imprimable et carte du QR d'accueil.
+   Les variables sémantiques y reprennent leurs valeurs claires. */
+.dark .qr-sheet,
+.dark .menu-showcase__qr-code {
+  --text-primary: var(--brand-ink);
+  --text-secondary: #4a616b;
+  --ink: var(--brand-ink);
+  --ink-soft: #4a616b;
+  --ocean-deep: var(--brand-sky-700);
+  --coral: var(--brand-coral-deep);
+  --paper: var(--brand-white);
+  --border-subtle: rgba(22, 45, 56, .15);
+  --line: rgba(22, 45, 56, .15);
+}
+.dark .qr-sheet { box-shadow: 0 20px 60px rgba(0, 0, 0, .5); }
+.dark .menu-showcase__qr-code {
+  background: var(--brand-white);
+  border: 1px solid rgba(22, 45, 56, .15);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .38);
+}
+
+/* Réseaux sociaux : couleurs de marque intactes, seule la surface d'accueil change */
+.dark .branded-social:not(.branded-social--whatsapp) {
+  background: var(--surface-elevated);
+  color: var(--night-text);
+  border-color: var(--night-line);
+}
+.dark .branded-social:hover { box-shadow: 0 10px 24px rgba(0, 0, 0, .45); }
+.dark .social-section__links a:hover { background: var(--night-surface); color: var(--night-text); }
+.dark .footer-grid a.branded-social--footer { background: transparent; }
+
+/* En-tête */
+.dark .site-header__main { border-bottom-color: var(--night-line); }
+.dark .menu-toggle { background: var(--surface-secondary); border-color: var(--night-line); }
+.dark .mobile-nav { background: var(--surface-primary); border-top-color: var(--night-line); }
+
+/* Pied de page : légèrement plus profond que la page pour rester distinct */
+.dark .site-footer { border-top: 1px solid var(--night-line); }
+
+/* Contrôle de thème */
+.theme-toggle {
+  flex: 0 0 auto;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .45rem;
+  padding-inline: .7rem;
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+  color: var(--text-primary);
+  font-size: .72rem;
+  font-weight: 850;
+  letter-spacing: .04em;
+  cursor: pointer;
+  transition: background-color .18s ease, border-color .18s ease, color .18s ease;
+}
+.theme-toggle svg { width: 17px; height: 17px; flex: 0 0 auto; }
+.theme-toggle__label { font-family: var(--font-geo); text-transform: uppercase; }
+.theme-toggle:hover { background: var(--surface-secondary); border-color: var(--brand-sky-500); }
+.theme-toggle:focus-visible { outline: 3px solid var(--brand-yellow); outline-offset: 3px; }
+.theme-toggle--placeholder { cursor: default; opacity: .55; }
+.dark .theme-toggle { color: var(--night-text); border-color: var(--night-line); }
+.dark .theme-toggle:hover { background: var(--night-surface); border-color: var(--night-sky); }
+
+/* Transitions de thème courtes et limitées aux couleurs */
+body,
+.site-header__main,
+.site-header__topline,
+.quick-info,
+.menu-showcase,
+.menu-showcase__qr,
+.experience,
+.gallery,
+.practical,
+.practical__shell,
+.social-section,
+.social-section__card,
+.site-footer,
+.legal-page,
+.legal-intro,
+.qr-page,
+.menu-page,
+.menu-hero,
+.menu-sheet-card,
+.mobile-action-bar,
+.live-opening,
+.branded-social,
+.theme-toggle {
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  .site-header__main,
+  .site-header__topline,
+  .quick-info,
+  .menu-showcase,
+  .menu-showcase__qr,
+  .experience,
+  .gallery,
+  .practical,
+  .practical__shell,
+  .social-section,
+  .social-section__card,
+  .site-footer,
+  .legal-page,
+  .legal-intro,
+  .qr-page,
+  .menu-page,
+  .menu-hero,
+  .menu-sheet-card,
+  .mobile-action-bar,
+  .live-opening,
+  .branded-social,
+  .theme-toggle { transition: none; }
+}
+
+/* Hero : cadrage mobile propre au thème */
+@media (max-width: 700px) {
+  .hero__media {
+    background-image: var(--hero-image-mobile);
+    background-position: var(--hero-position-mobile);
+  }
+}
+
+/* Contrôle de thème sur mobile : groupé avec le bouton de menu */
+@media (max-width: 900px) {
+  .theme-toggle { margin-left: auto; }
+  .menu-toggle { margin-left: .5rem; }
+  .theme-toggle__label { display: none; }
+  .theme-toggle { min-width: 46px; padding-inline: .5rem; }
+}
+
+/* Impression : toujours en clair, quel que soit le thème actif */
+@media print {
+  :root, .dark {
+    /* !important : next-themes pose color-scheme en style inline sur <html> */
+    color-scheme: light !important;
+    --page-background: #ffffff;
+    --surface-primary: #ffffff;
+    --surface-secondary: #ffffff;
+    --surface-elevated: #ffffff;
+    --surface-muted: #ffffff;
+    --text-primary: #162d38;
+    --text-secondary: #4a616b;
+    --border-subtle: rgba(22, 45, 56, .2);
+    --footer-background: #ffffff;
+    --hero-background: #ffffff;
+  }
+  .theme-toggle { display: none !important; }
+  .qr-sheet { background: #ffffff; color: #162d38; }
+  .qr-sheet__code { background: #ffffff; }
+}
+
+/* Correctifs de débordement horizontal relevés à l'audit (identiques dans les deux thèmes) */
+@media (max-width: 900px) {
+  .experience__stamp { right: 0; }
+}
+
+/* Carte : statut et actions lisibles en mode sombre */
+.dark .menu-hero__status .status-badge.is-open { color: #7fd6a0; }
+.dark .menu-hero__status .status-badge.is-closed { color: #ffa7a2; }
+.dark .menu-hero__status .status-badge.is-pending { color: var(--night-text-soft); }
+.dark .menu-hero .eyebrow { color: var(--night-sky); }
+.dark .menu-documents__notice > a,
+.dark .menu-sheet-card figcaption span:last-child { color: var(--night-sky); }
+.dark .menu-hero__status { background: rgba(16, 37, 44, .72); border-color: var(--night-line); }

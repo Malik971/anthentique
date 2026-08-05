@@ -8,6 +8,7 @@ import { business } from "@/content/business";
 import { whatsappHref } from "@/lib/links";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { BrandIcon } from "@/components/ui/BrandIcon";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 const navItems = [
   { href: "/", label: "Accueil" },
@@ -37,6 +38,8 @@ export function Header() {
           <nav className="desktop-nav" aria-label="Navigation principale">
             {navItems.map((item) => <Link href={item.href} key={item.href}>{item.label}</Link>)}
           </nav>
+
+          <ThemeToggle />
 
           <a className="header-cta" href={whatsappHref(business.whatsapp)} target="_blank" rel="noopener noreferrer">
             <BrandIcon platform="whatsapp" aria-hidden="true" />

@@ -1,4 +1,4 @@
-import Image, { getImageProps } from "next/image";
+import Image from "next/image";
 import { MapPin, UtensilsCrossed } from "lucide-react";
 import { business } from "@/content/business";
 import { whatsappHref } from "@/lib/links";
@@ -7,30 +7,15 @@ import { BrandedSocialButton } from "@/components/ui/BrandedSocialButton";
 import { LiveOpeningPanel } from "@/components/ui/LiveOpeningPanel";
 
 export function HeroSection() {
-  const alt = "Façade de L’Authentique au Village Artisanal de Sainte-Anne";
-  const desktop = getImageProps({
-    src: "/images/hero/hero-lauthentique-village-arc-en-ciel.webp",
-    alt,
-    width: 1600,
-    height: 900,
-    sizes: "100vw",
-    priority: true,
-  });
-  const mobile = getImageProps({
-    src: "/images/hero/hero-lauthentique-mobile.webp",
-    alt,
-    width: 1350,
-    height: 1800,
-    sizes: "100vw",
-    priority: true,
-  });
-
   return (
     <section className="hero" aria-labelledby="hero-title">
-      <picture className="hero__media">
-        <source media="(max-width: 700px)" srcSet={mobile.props.srcSet} />
-        <img {...desktop.props} alt={alt} />
-      </picture>
+      {/*
+        Visuel décoratif : l’image est appliquée en fond via --hero-image-desktop
+        et --hero-image-mobile, afin que le thème clair ou sombre choisi
+        manuellement change la photographie immédiatement, sans double
+        téléchargement. Le nom, le lieu et les horaires sont déjà en texte.
+      */}
+      <div className="hero__media" aria-hidden="true" />
       <div className="hero__veil" aria-hidden="true" />
       <div className="container hero__content">
         <div className="hero__copy">
